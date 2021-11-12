@@ -1,0 +1,26 @@
+Documentation Cypress.io
+https://docs.cypress.io/guides/overview/why-cypress
+
+
+Configuration de l’environnement de travail node.js
+npm init -y
+
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
+  },
+
+
+Installation Cypress et TypeScript
+npm i cypress typescript --force
+
+Configurer TypeScript
+npx tsc --init --types cypress --lib dom,es6
+
+Lancer cypress
+.\node_modules\.bin\cypress open
+
+Modifier l’extension des fichiers cypress\plugins\index.js, cypress\support\commands.js et cypress\support\index.js de .js à .ts
+Modifier TSConfig
+    "types": ["node", "cypress"]
+
