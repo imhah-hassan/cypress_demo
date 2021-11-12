@@ -5,7 +5,7 @@ describe("Scénarion de connexion / déconnexion", () => {
     });
     it("Se connecter et vérifier le nom de la personne connectée", () => {
         cy.get('#txtUsername').type("Admin");
-        cy.get('#txtPassword').type("admin123")
+        cy.get('#txtPassword').type("admin123");
         cy.get('#btnLogin').click();
         cy.get('#welcome').should ("have.text", "Welcome Paul");
     });
