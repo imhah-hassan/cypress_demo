@@ -4,12 +4,7 @@ describe("Scénarion Gestion des salariés", () => {
         cy.Login();
     });
     it("Ajouter un salarié", () => {
-        cy.get('#menu_pim_viewPimModule > b').click();
-        cy.get("#menu_pim_addEmployee").click({force:true})
-        cy.get("#firstName").type("Cypress");
-        cy.get("#lastName").type("Demo9905");
-        cy.get("#employeeId").type("9903");
-        cy.get("#btnSave").click();
+        cy.AddEmplyee()
 
     });
     it("Saisir le détail", () => {
