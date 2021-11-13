@@ -7,7 +7,7 @@ describe("Scénarion de connexion / déconnexion", () => {
         cy.get('#txtUsername').type("admin");
         cy.get('#txtPassword').type("admin123");
         cy.get('#btnLogin').click();
-        cy.get('#welcome').should("have.text", "Welcome revanth");
+        cy.get('#welcome').should("have.text", "Welcome Paul");
     });
     it("Se déconnecter", () => {
         cy.get('#welcome').click();

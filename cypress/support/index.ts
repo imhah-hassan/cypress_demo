@@ -3,5 +3,5 @@ import './commands'
 import './employee'
 
 Cypress.Cookies.defaults({
-    preserve: ['_orangehrm', 'Loggedin']
+    preserve: ['orangehrm', 'Loggedin']
 })
