@@ -4,7 +4,7 @@
         "employeeId": "1854",
         "gender": "Male",
         "marital": "Single",
-        "nation": "64",
+        "nation": "Français",
         "dob": "1854-04-29"
     },
     {
@@ -13,7 +13,7 @@
         "employeeId": "1966",
         "gender": "Male",
         "marital": "Single",
-        "nation": "146",
+        "nation": "Russe",
         "dob": "1966-06-13"
     }
 ]

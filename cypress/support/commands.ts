@@ -1,21 +1,15 @@
-Cypress.Commands.add("Login", ()  =>  {
+
+Cypress.Commands.add("Login", () => {
     cy.visit("/auth/login");
-    cy.get('#txtUsername').type(Cypress.env ("login"));
-    cy.get('#txtPassword').type(Cypress.env ("pwd"));
-    cy.get('#btnLogin').click();
-    cy.get('#welcome').should("have.text", Cypress.env("Welcome"));
+    cy.get('#txtUsername').type(Cypress.env("login"))
+    cy.get('#txtPassword').type(Cypress.env("pwd"))
+    cy.get('#btnLogin').click()
+    cy.get('#welcome').should ("have.text", "Bienvenue Hassan")
 })
-
-Cypress.Commands.add("SetLanguage", (language:string)  =>  {
-    cy.visit ("/index.php/admin/localization");
-    cy.get("#btnSave").click();
-    cy.get("#localization_dafault_language").select (language);
-    cy.get("#btnSave").click();
-})
-
-Cypress.Commands.add("Logout", ()  =>  {
-    cy.request({ method: "GET", url: "/auth/logout" });
-    cy.visit("/")
+Cypress.Commands.add("Logout", () => {
+    cy.get('#welcome').click()
+    cy.contains ("Déconnexion").click()
+    cy.get('#txtUsername').should("be.visible")
 })
 
 Cypress.Commands.add("HttpLogin", () => {
@@ -32,8 +26,8 @@ Cypress.Commands.add("HttpLogin", () => {
           url: "/auth/validateCredentials",
           form: true,
           body: {
-            txtUsername: Cypress.env ("login"),
-            txtPassword: Cypress.env ("pwd"),
+            txtUsername: Cypress.env("login"),
+            txtPassword: Cypress.env("pwd"),
             _csrf_token: csrf,
             Submit: "CONNEXION",
           },
@@ -47,4 +41,24 @@ Cypress.Commands.add("HttpLogin", () => {
 Cypress.Commands.add("HttpLogout", () => {
     cy.request({ method: "GET", url: "/auth/logout" });
     cy.visit("/")
+})
+
+Cypress.Commands.add("DeleteAll", () => {
+  cy.get("#resultTable").find("tr").find("td").then((row) => {
+      if (row.text() != 'Aucun Résultat') {      
+        cy.get('#ohrmList_chkSelectAll').click()
+        cy.get('#btnDelete').click()
+        cy.get('#deleteConfModal > .modal-header > h3').should ("contain", "Confirmation requise")
+        cy.get('#dialogDeleteBtn').click()
+      }
+      else
+        cy.log (row.text())
+    })
+})
+Cypress.Commands.add("CheckMenu", (menuId:string, menuTitle:string, url:string) => {
+  cy.get('#menu_'+menuId).click({force:true});
+  cy.get('h1').should("contain.text", menuTitle)
+  cy.url().should("include", url);
+
+
 })
