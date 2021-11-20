@@ -15,10 +15,10 @@ describe("Scénarion Gestion des salariés", () => {
         cy.EmployeeDetails ("1", "French", "Single", "1989-05-15");
 
     });
-    it.only("Rechercher un salarié", () => {
+    it("Rechercher un salarié", () => {
         cy.SearchEmployee("Cypress");
     });
-    it.skip("Supprimé un salarié", () => {
+    it("Supprimé un salarié", () => {
         cy.DeleteEmployee("Cypress");
     });
     after("Se déconnecter de OrangeHRM", () => {

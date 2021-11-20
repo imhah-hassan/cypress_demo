@@ -1,5 +1,5 @@
 {
-    "baseUrl": "http://localhost",
+    "baseUrl": "https://opensource-demo.orangehrmlive.com/",
     "experimentalStudio": true,
     "viewportHeight": 1000,
     "viewportWidth": 1800,
