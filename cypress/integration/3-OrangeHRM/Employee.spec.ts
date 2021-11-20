@@ -5,7 +5,8 @@ describe("Scénarion Gestion des salariés", () => {
     });
 
     it("Ajouter un salarié", () => {
-        cy.AddEmployee("Cypress", "Demo", "0999");
+        let id=(Math.floor (Math.random ()*10000)+90000).toString()
+        cy.AddEmployee("Cypress" + id, "Demo" + id, id);
     });
     it("Saisir le détail", () => {
         cy.SearchEmployee("Cypress");
@@ -14,10 +15,10 @@ describe("Scénarion Gestion des salariés", () => {
         cy.EmployeeDetails ("1", "French", "Single", "1989-05-15");
 
     });
-    it("Rechercher un salarié", () => {
+    it.only("Rechercher un salarié", () => {
         cy.SearchEmployee("Cypress");
     });
-    it("Supprimé un salarié", () => {
+    it.skip("Supprimé un salarié", () => {
         cy.DeleteEmployee("Cypress");
     });
     after("Se déconnecter de OrangeHRM", () => {

@@ -5,7 +5,7 @@ Cypress.Commands.add("AddEmployee", (lastName:string, firstName:string, employee
     cy.get("#lastName").clear().type(firstName);
     cy.get("#employeeId").clear().type(employeeId);
     cy.get("#btnSave").click();
-    cy.get('#profile-pic > h1').should ("have.text", "Cypress Demo");
+    cy.get('#profile-pic > h1').should ("have.text", lastName + " " + firstName);
 })
 Cypress.Commands.add("SearchEmployee", (lastName:string)  =>  {
     // Rechercher le salarié Cypress

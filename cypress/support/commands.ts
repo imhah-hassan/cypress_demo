@@ -3,7 +3,6 @@ Cypress.Commands.add("Login", ()  =>  {
     cy.get('#txtUsername').type(Cypress.env ("login"));
     cy.get('#txtPassword').type(Cypress.env ("pwd"));
     cy.get('#btnLogin').click();
-    cy.SetLanguage ("en_US");
     cy.get('#welcome').should("have.text", Cypress.env("Welcome"));
 })
 
