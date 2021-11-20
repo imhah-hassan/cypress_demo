@@ -12,6 +12,7 @@ declare namespace Cypress {
        * @example cy.Logout()
        */
        Logout(): void
+       HttpLogin(): void
        HttpLogout(): void
        SetLanguage(language:string): void
        AddEmployee(emp:employeeInfos): void

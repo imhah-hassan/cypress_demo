@@ -17,3 +17,34 @@ Cypress.Commands.add("Logout", ()  =>  {
     cy.request({ method: "GET", url: "/auth/logout" });
     cy.visit("/")
 })
+
+Cypress.Commands.add("HttpLogin", () => {
+    cy.request({
+        method: "GET",
+        url: "/auth/login",
+      }).then((resp) => {
+        expect(resp.status).to.eq(200);
+        const $html = Cypress.$(resp.body);
+        const csrf = $html.find("input[id=csrf_token]").val();
+        // cy.log(csrf.toString());
+        cy.request({
+          method: "POST",
+          url: "/auth/validateCredentials",
+          form: true,
+          body: {
+            txtUsername: Cypress.env ("login"),
+            txtPassword: Cypress.env ("pwd"),
+            _csrf_token: csrf,
+            Submit: "CONNEXION",
+          },
+        }).then((resp) => {
+          expect(resp.status).to.eq(200);
+          cy.visit("/pim/viewEmployeeList");
+        });
+      });
+  })
+
+Cypress.Commands.add("HttpLogout", () => {
+    cy.request({ method: "GET", url: "/auth/logout" });
+    cy.visit("/")
+})
