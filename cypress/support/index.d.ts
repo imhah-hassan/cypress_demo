@@ -1,13 +1,25 @@
 /// <reference types="cypress" />
 
 declare namespace Cypress {
-  interface Chainable {
-    Login(): void
-    Logout(): void
-    SetLanguage(language:string): void
-    AddEmployee(lastName:string, firstName:string, employeeId:string): void
-    SearchEmployee(lastName:string): void
-    EmployeeDetails (gender:string, nation:string, marital:string, dob:string): void
-    DeleteEmployee (name:string): void
+    interface Chainable {
+      /**
+       * Connexion à OrangeHRM.
+       * @example cy.Login()
+       */
+      Login(): void
+      /**
+       * Déconnexion à OrangeHRM.
+       * @example cy.Logout()
+       */
+       Logout(): void
+       HttpLogout(): void
+       SetLanguage(language:string): void
+       AddEmployee(emp:employeeInfos): void
+       EmployeeSearchByName(name:string): void
+       EmployeeSearchById(matricule:string): void
+       EmployeeAddress(): void
+       DeleteEmployee(): void
+       DeleteAllEmployees(): void
+  
+    }
   }
-}

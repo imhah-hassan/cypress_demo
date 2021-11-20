@@ -14,7 +14,6 @@ Cypress.Commands.add("SetLanguage", (language:string)  =>  {
 })
 
 Cypress.Commands.add("Logout", ()  =>  {
-    cy.get('#welcome').click();
-    cy.get("a[href*='auth/logout']").click({force:true});
-    cy.get('#logInPanelHeading').should("be.visible").should("have.text", Cypress.env("LoginPanel"));
+    cy.request({ method: "GET", url: "/auth/logout" });
+    cy.visit("/")
 })
