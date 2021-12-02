@@ -1,8 +1,8 @@
 {
-    "baseUrl": "https://opensource-demo.orangehrmlive.com/",
+    "baseUrl": "http://localhost",
     "experimentalStudio": true,
     "viewportHeight": 1000,
     "viewportWidth": 1800,
-    "pageLoadTimeout": 30000,
-    "defaultCommandTimeout": 5000
+    "pageLoadTimeout": 7000,
+    "defaultCommandTimeout": 1000
 }

@@ -38,7 +38,7 @@ describe("Scénarion de connexion / déconnexion", () => {
         cy.get('#btnEdit').click()
         cy.fixture("StructureUnits").then (unit=>{
             cy.get('#treeLink_addChild_1').click()
-            cy.get('#title').should("have.text", "OrangeHRM - Ajouter une unité")
+            cy.get('#title').should("have.text", "OrangeHRM - "+Cypress.env("AddUnit"))
             cy.get('#txtUnit_Id').clear().type(unit.Id)
             cy.get('#txtName').clear().type(unit.Name)
             cy.get('#txtDescription').clear().type(unit.Description)
@@ -60,7 +60,7 @@ describe("Scénarion de connexion / déconnexion", () => {
         })
     })
 
-    it.only ("Add job status",()=>{
+    it ("Add job status",()=>{
         cy.visit ("/admin/employmentStatus")
         cy.fixture("JobStatus").then (statuses=>{
             statuses.forEach((status: any) => {

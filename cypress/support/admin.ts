@@ -8,18 +8,3 @@ Cypress.Commands.add("DeleteJobTitles", () => {
     cy.DeleteAll()
 })
 
-Cypress.Commands.add("DeleteCategories", () => {
-    
-})
-Cypress.Commands.add("DeleteCategories", () => {
-    
-})
-Cypress.Commands.add("DeleteCategories", () => {
-    
-})
-Cypress.Commands.add("DeleteCategories", () => {
-    
-})
-Cypress.Commands.add("DeleteCategories", () => {
-    
-})

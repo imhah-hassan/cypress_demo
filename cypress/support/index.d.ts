@@ -23,6 +23,8 @@ declare namespace Cypress {
        DeleteAllEmployees(): void
 
        CheckMenu(menuId:string, menuTitle:string, url:string): void
+       DeleteJobTitles ():void
+       DeleteCategories():void
   
     }
   }
